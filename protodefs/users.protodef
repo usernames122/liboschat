@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "namespace": "Users",
+  "imports": [
+    "refs.protodef",
+    "types.protodef"
+  ],
+  "messages": {
+    "Users.GetProfile": {
+      "fields": {
+        "ref": {
+          "t": 1,
+          "k": "Refs.UserRef"
+        }
+      }
+    },
+    "Users.Profile": {
+      "fields": {
+        "ref": {
+          "t": 1,
+          "k": "Refs.UserRef"
+        },
+        "bio": {
+          "t": 2,
+          "k": "string"
+        },
+        "premiumSince": {
+          "t": 3,
+          "k": "fixed64",
+          "o": true
+        }
+      }
+    },
+    "Users.LookupUsername": {
+      "fields": {
+        "username": {
+          "t": 1,
+          "k": "string"
+        }
+      }
+    },
+    "Users.UserDetails": {
+      "fields": {
+        "user": {
+          "t": 1,
+          "k": "Types.User"
+        }
+      }
+    }
+  }
+}

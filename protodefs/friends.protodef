@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "namespace": "Friends",
+  "imports": [
+    "types.protodef",
+    "refs.protodef"
+  ],
+  "messages": {
+    "Friends.GetRelationships": {
+      "fields": {}
+    },
+    "Friends.Relationships": {
+      "fields": {
+        "relationships": {
+          "t": 1,
+          "k": "Types.Relationship",
+          "r": true
+        },
+        "users": {
+          "t": 2,
+          "k": "Types.User",
+          "r": true
+        }
+      }
+    },
+    "Friends.SyncFriends": {
+      "fields": {
+        "platformUserId": {
+          "t": 1,
+          "k": "string"
+        },
+        "hashedPlatformUserId": {
+          "t": 2,
+          "k": "bytes"
+        },
+        "platformUserName": {
+          "t": 3,
+          "k": "string",
+          "o": true
+        },
+        "platform": {
+          "t": 4,
+          "k": "string"
+        },
+        "friendIdsHashed": {
+          "t": 5,
+          "k": "bytes",
+          "r": true,
+          "packed": true
+        },
+        "communityIdsHashed": {
+          "t": 6,
+          "k": "bytes",
+          "r": true,
+          "packed": true
+        }
+      }
+    },
+    "Friends.ChangeRelationship": {
+      "fields": {
+        "user": {
+          "t": 1,
+          "k": "Refs.UserRef"
+        },
+        "change": {
+          "t": 2,
+          "k": "enum"
+        }
+      }
+    }
+  }
+}

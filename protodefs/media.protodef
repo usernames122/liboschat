@@ -1,0 +1,320 @@
+{
+  "version": 1,
+  "namespace": "Media",
+  "imports": [
+    "refs.protodef"
+  ],
+  "messages": {
+    "Media.UploadFilePart": {
+      "fields": {
+        "uploadId": {
+          "t": 1,
+          "k": "uint64"
+        },
+        "part": {
+          "t": 2,
+          "k": "uint32"
+        },
+        "data": {
+          "t": 3,
+          "k": "bytes"
+        }
+      }
+    },
+    "Media.DownloadFilePart": {
+      "fields": {
+        "fileRef": {
+          "t": 1,
+          "k": "Media.FileRef"
+        },
+        "offset": {
+          "t": 2,
+          "k": "uint64"
+        },
+        "length": {
+          "t": 3,
+          "k": "uint32"
+        }
+      }
+    },
+    "Media.FilePart": {
+      "fields": {
+        "data": {
+          "t": 3,
+          "k": "bytes"
+        }
+      }
+    },
+    "Media.FileRef": {
+      "fields": {
+        "mediaFile": {
+          "t": 1,
+          "k": "Media.FileRef.MediaFileRef",
+          "o": true,
+          "oneof": "ref"
+        },
+        "chatPhoto": {
+          "t": 2,
+          "k": "Media.FileRef.ChatPhotoFileRef",
+          "o": true,
+          "oneof": "ref"
+        }
+      }
+    },
+    "Media.FileRef.MediaFileRef": {
+      "fields": {
+        "fileId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Media.FileRef.ChatPhotoFileRef": {
+      "fields": {
+        "fileId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Media.UploadedFileRef": {
+      "fields": {
+        "id": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "name": {
+          "t": 2,
+          "k": "string"
+        },
+        "partCount": {
+          "t": 3,
+          "k": "uint32"
+        }
+      }
+    },
+    "Media.MediaRef": {
+      "fields": {
+        "uploaded": {
+          "t": 1,
+          "k": "Media.MediaRefUploadedFile",
+          "o": true,
+          "oneof": "ref"
+        },
+        "embed": {
+          "t": 2,
+          "k": "Media.MediaRefEmbed",
+          "o": true,
+          "oneof": "ref"
+        }
+      }
+    },
+    "Media.MediaRefUploadedFile": {
+      "fields": {
+        "file": {
+          "t": 1,
+          "k": "Media.UploadedFileRef"
+        },
+        "filename": {
+          "t": 2,
+          "k": "string",
+          "o": true
+        },
+        "mimetype": {
+          "t": 3,
+          "k": "string"
+        },
+        "metadata": {
+          "t": 4,
+          "k": "Media.FileMetadata"
+        }
+      }
+    },
+    "Media.MediaRefEmbed": {
+      "fields": {
+        "url": {
+          "t": 1,
+          "k": "string"
+        }
+      }
+    },
+    "Media.FileMetadata": {
+      "fields": {
+        "image": {
+          "t": 1,
+          "k": "Media.FileMetadata.MetadataImage",
+          "o": true,
+          "oneof": "metadata"
+        },
+        "video": {
+          "t": 2,
+          "k": "Media.FileMetadata.MetadataVideo",
+          "o": true,
+          "oneof": "metadata"
+        },
+        "audio": {
+          "t": 3,
+          "k": "Media.FileMetadata.MetadataAudio",
+          "o": true,
+          "oneof": "metadata"
+        },
+        "file": {
+          "t": 4,
+          "k": "Media.FileMetadata.MetadataFile",
+          "o": true,
+          "oneof": "metadata"
+        },
+        "customEmoji": {
+          "t": 5,
+          "k": "Media.FileMetadata.MetadataCustomEmoji",
+          "o": true,
+          "oneof": "metadata"
+        }
+      }
+    },
+    "Media.FileMetadata.MetadataImage": {
+      "fields": {
+        "width": {
+          "t": 1,
+          "k": "uint32"
+        },
+        "height": {
+          "t": 2,
+          "k": "uint32"
+        },
+        "preview": {
+          "t": 3,
+          "k": "bytes",
+          "o": true
+        }
+      }
+    },
+    "Media.FileMetadata.MetadataVideo": {
+      "fields": {
+        "width": {
+          "t": 1,
+          "k": "uint32"
+        },
+        "height": {
+          "t": 2,
+          "k": "uint32"
+        },
+        "duration": {
+          "t": 3,
+          "k": "uint32"
+        }
+      }
+    },
+    "Media.FileMetadata.MetadataAudio": {
+      "fields": {
+        "duration": {
+          "t": 1,
+          "k": "uint32"
+        }
+      }
+    },
+    "Media.FileMetadata.MetadataFile": {
+      "fields": {}
+    },
+    "Media.FileMetadata.MetadataCustomEmoji": {
+      "fields": {
+        "width": {
+          "t": 1,
+          "k": "uint32"
+        },
+        "height": {
+          "t": 2,
+          "k": "uint32"
+        },
+        "emoji": {
+          "t": 3,
+          "k": "string"
+        },
+        "pack": {
+          "t": 4,
+          "k": "Refs.StickerPackRef"
+        }
+      }
+    },
+    "Media.File": {
+      "fields": {
+        "fileId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "region": {
+          "t": 2,
+          "k": "uint32"
+        },
+        "size": {
+          "t": 3,
+          "k": "uint64"
+        },
+        "mimetype": {
+          "t": 4,
+          "k": "string"
+        },
+        "filename": {
+          "t": 5,
+          "k": "string",
+          "o": true
+        },
+        "metadata": {
+          "t": 6,
+          "k": "Media.FileMetadata"
+        }
+      }
+    },
+    "Media.Files": {
+      "fields": {
+        "files": {
+          "t": 1,
+          "k": "Media.File",
+          "r": true
+        }
+      }
+    },
+    "Media.MediaFile": {
+      "fields": {
+        "file": {
+          "t": 1,
+          "k": "Media.File"
+        }
+      }
+    },
+    "Media.MediaEmbed": {
+      "fields": {
+        "url": {
+          "t": 1,
+          "k": "string"
+        },
+        "title": {
+          "t": 2,
+          "k": "string",
+          "o": true
+        },
+        "description": {
+          "t": 3,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Media.MessageMedia": {
+      "fields": {
+        "file": {
+          "t": 1,
+          "k": "Media.MediaFile",
+          "o": true,
+          "oneof": "media"
+        },
+        "embed": {
+          "t": 2,
+          "k": "Media.MediaEmbed",
+          "o": true,
+          "oneof": "media"
+        }
+      }
+    }
+  }
+}

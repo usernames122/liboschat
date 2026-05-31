@@ -1,0 +1,222 @@
+{
+  "version": 1,
+  "namespace": "Messages",
+  "imports": [
+    "types.protodef",
+    "refs.protodef",
+    "media.protodef",
+    "reactions.protodef"
+  ],
+  "messages": {
+    "Messages.SendMessage": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "message": {
+          "t": 2,
+          "k": "string"
+        },
+        "replyTo": {
+          "t": 3,
+          "k": "fixed64",
+          "o": true
+        },
+        "media": {
+          "t": 4,
+          "k": "Media.MediaRef",
+          "r": true
+        },
+        "entities": {
+          "t": 5,
+          "k": "Types.MessageEntity",
+          "r": true
+        }
+      }
+    },
+    "Messages.SentMessage": {
+      "fields": {
+        "messageId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Messages.EditMessage": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "messageId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "message": {
+          "t": 3,
+          "k": "string",
+          "o": true
+        },
+        "removeMedia": {
+          "t": 4,
+          "k": "bool"
+        },
+        "media": {
+          "t": 5,
+          "k": "Media.MediaRef",
+          "r": true
+        },
+        "entities": {
+          "t": 6,
+          "k": "Types.MessageEntity",
+          "r": true
+        }
+      }
+    },
+    "Messages.ForwardMessage": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "from": {
+          "t": 2,
+          "k": "Refs.ChatRef"
+        },
+        "messageIds": {
+          "t": 3,
+          "k": "fixed64",
+          "r": true,
+          "packed": true
+        }
+      }
+    },
+    "Messages.DeleteMessage": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "messageIds": {
+          "t": 2,
+          "k": "fixed64",
+          "r": true,
+          "packed": true
+        }
+      }
+    },
+    "Messages.GetHistory": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "limit": {
+          "t": 2,
+          "k": "uint32",
+          "o": true
+        },
+        "since": {
+          "t": 3,
+          "k": "fixed64",
+          "o": true,
+          "oneof": "offset"
+        },
+        "before": {
+          "t": 4,
+          "k": "fixed64",
+          "o": true,
+          "oneof": "offset"
+        },
+        "around": {
+          "t": 5,
+          "k": "fixed64",
+          "o": true,
+          "oneof": "offset"
+        }
+      }
+    },
+    "Messages.Messages": {
+      "fields": {
+        "messages": {
+          "t": 1,
+          "k": "Types.Message",
+          "r": true
+        },
+        "users": {
+          "t": 2,
+          "k": "Types.User",
+          "r": true
+        },
+        "members": {
+          "t": 3,
+          "k": "Types.CommunityMember",
+          "r": true
+        },
+        "reactions": {
+          "t": 4,
+          "k": "Reactions.MessageReactions",
+          "r": true
+        }
+      }
+    },
+    "Messages.Search": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "query": {
+          "t": 2,
+          "k": "string"
+        },
+        "scoped": {
+          "t": 3,
+          "k": "bool"
+        },
+        "since": {
+          "t": 4,
+          "k": "fixed64",
+          "o": true,
+          "oneof": "offset"
+        },
+        "before": {
+          "t": 5,
+          "k": "fixed64",
+          "o": true,
+          "oneof": "offset"
+        }
+      }
+    },
+    "Messages.GetEmbedPreview": {
+      "fields": {
+        "message": {
+          "t": 1,
+          "k": "string"
+        },
+        "entities": {
+          "t": 2,
+          "k": "Types.MessageEntity",
+          "r": true
+        }
+      }
+    },
+    "Messages.ReportMessage": {
+      "fields": {
+        "messageId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "chatRef": {
+          "t": 2,
+          "k": "Refs.ChatRef"
+        },
+        "reason": {
+          "t": 3,
+          "k": "string"
+        }
+      }
+    }
+  }
+}

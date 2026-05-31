@@ -1,0 +1,812 @@
+{
+  "version": 1,
+  "namespace": "Core",
+  "imports": [
+    "auth.protodef",
+    "messages.protodef",
+    "chats.protodef",
+    "updates.protodef",
+    "friends.protodef",
+    "communities.protodef",
+    "media.protodef",
+    "types.protodef",
+    "settings.protodef",
+    "voice.protodef",
+    "users.protodef",
+    "reactions.protodef",
+    "stickers.protodef",
+    "billing.protodef"
+  ],
+  "messages": {
+    "Core.ClientMessage": {
+      "fields": {
+        "id": {
+          "t": 1,
+          "k": "uint32"
+        },
+        "authSignIn": {
+          "t": 2,
+          "k": "Auth.SignIn",
+          "o": true,
+          "oneof": "message"
+        },
+        "authSignUp": {
+          "t": 3,
+          "k": "Auth.SignUp",
+          "o": true,
+          "oneof": "message"
+        },
+        "messagesSendMessage": {
+          "t": 4,
+          "k": "Messages.SendMessage",
+          "o": true,
+          "oneof": "message"
+        },
+        "messagesGetHistory": {
+          "t": 5,
+          "k": "Messages.GetHistory",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesCreateCommunity": {
+          "t": 6,
+          "k": "Communities.CreateCommunity",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesGetCommunities": {
+          "t": 7,
+          "k": "Communities.GetCommunities",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesCreateChannel": {
+          "t": 8,
+          "k": "Communities.CreateChannel",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesGetChannels": {
+          "t": 9,
+          "k": "Communities.GetChannels",
+          "o": true,
+          "oneof": "message"
+        },
+        "friendsGetRelationships": {
+          "t": 10,
+          "k": "Friends.GetRelationships",
+          "o": true,
+          "oneof": "message"
+        },
+        "chatsGetChats": {
+          "t": 11,
+          "k": "Chats.GetChats",
+          "o": true,
+          "oneof": "message"
+        },
+        "mediaUploadFilePart": {
+          "t": 12,
+          "k": "Media.UploadFilePart",
+          "o": true,
+          "oneof": "message"
+        },
+        "mediaDownloadFilePart": {
+          "t": 13,
+          "k": "Media.DownloadFilePart",
+          "o": true,
+          "oneof": "message"
+        },
+        "chatsCreateChatInvite": {
+          "t": 14,
+          "k": "Chats.CreateChatInvite",
+          "o": true,
+          "oneof": "message"
+        },
+        "authLookupInvite": {
+          "t": 15,
+          "k": "Auth.LookupInvite",
+          "o": true,
+          "oneof": "message"
+        },
+        "authUseInvite": {
+          "t": 16,
+          "k": "Auth.UseInvite",
+          "o": true,
+          "oneof": "message"
+        },
+        "messagesDeleteMessage": {
+          "t": 17,
+          "k": "Messages.DeleteMessage",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesGetChannelMembers": {
+          "t": 18,
+          "k": "Communities.GetChannelMembers",
+          "o": true,
+          "oneof": "message"
+        },
+        "coreInitialize": {
+          "t": 19,
+          "k": "Core.Initialize",
+          "o": true,
+          "oneof": "message"
+        },
+        "authAuthorize": {
+          "t": 20,
+          "k": "Auth.Authorize",
+          "o": true,
+          "oneof": "message"
+        },
+        "chatsMarkChatRead": {
+          "t": 21,
+          "k": "Chats.MarkChatRead",
+          "o": true,
+          "oneof": "message"
+        },
+        "settingsEditProfilePhoto": {
+          "t": 22,
+          "k": "Settings.EditProfilePhoto",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesEditPhoto": {
+          "t": 23,
+          "k": "Communities.EditPhoto",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesDeleteChannel": {
+          "t": 24,
+          "k": "Communities.DeleteChannel",
+          "o": true,
+          "oneof": "message"
+        },
+        "chatsGetChat": {
+          "t": 25,
+          "k": "Chats.GetChat",
+          "o": true,
+          "oneof": "message"
+        },
+        "messagesEditMessage": {
+          "t": 26,
+          "k": "Messages.EditMessage",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesGetRoles": {
+          "t": 27,
+          "k": "Communities.GetRoles",
+          "o": true,
+          "oneof": "message"
+        },
+        "chatsSetTyping": {
+          "t": 28,
+          "k": "Chats.SetTyping",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesCreateRole": {
+          "t": 29,
+          "k": "Communities.CreateRole",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesEditRole": {
+          "t": 30,
+          "k": "Communities.EditRole",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesDeleteRole": {
+          "t": 31,
+          "k": "Communities.DeleteRole",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesEditMember": {
+          "t": 32,
+          "k": "Communities.EditMember",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesCreateChannelOverride": {
+          "t": 33,
+          "k": "Communities.CreateChannelOverride",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesDeleteChannelOverride": {
+          "t": 34,
+          "k": "Communities.DeleteChannelOverride",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesGetChannelOverrides": {
+          "t": 35,
+          "k": "Communities.GetChannelOverrides",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesLeaveCommunity": {
+          "t": 36,
+          "k": "Communities.LeaveCommunity",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesDeleteCommunity": {
+          "t": 37,
+          "k": "Communities.DeleteCommunity",
+          "o": true,
+          "oneof": "message"
+        },
+        "friendsSyncFriends": {
+          "t": 38,
+          "k": "Friends.SyncFriends",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesEditChannel": {
+          "t": 39,
+          "k": "Communities.EditChannel",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesEditCommunity": {
+          "t": 40,
+          "k": "Communities.EditCommunity",
+          "o": true,
+          "oneof": "message"
+        },
+        "authGetSessions": {
+          "t": 41,
+          "k": "Auth.GetSessions",
+          "o": true,
+          "oneof": "message"
+        },
+        "authRevokeSessions": {
+          "t": 42,
+          "k": "Auth.RevokeSessions",
+          "o": true,
+          "oneof": "message"
+        },
+        "settingsRegisterPushSubscription": {
+          "t": 43,
+          "k": "Settings.RegisterPushSubscription",
+          "o": true,
+          "oneof": "message"
+        },
+        "settingsUnregisterPushSubscription": {
+          "t": 44,
+          "k": "Settings.UnregisterPushSubscription",
+          "o": true,
+          "oneof": "message"
+        },
+        "authResetPassword": {
+          "t": 45,
+          "k": "Auth.ResetPassword",
+          "o": true,
+          "oneof": "message"
+        },
+        "authVerifyEmail": {
+          "t": 46,
+          "k": "Auth.VerifyEmail",
+          "o": true,
+          "oneof": "message"
+        },
+        "authResendEmailVerification": {
+          "t": 47,
+          "k": "Auth.ResendEmailVerification",
+          "o": true,
+          "oneof": "message"
+        },
+        "usersLookupUsername": {
+          "t": 48,
+          "k": "Users.LookupUsername",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesRemoveMembers": {
+          "t": 49,
+          "k": "Communities.RemoveMembers",
+          "o": true,
+          "oneof": "message"
+        },
+        "chatsCreateChat": {
+          "t": 50,
+          "k": "Chats.CreateChat",
+          "o": true,
+          "oneof": "message"
+        },
+        "friendsChangeRelationship": {
+          "t": 51,
+          "k": "Friends.ChangeRelationship",
+          "o": true,
+          "oneof": "message"
+        },
+        "chatsUpdateChat": {
+          "t": 52,
+          "k": "Chats.UpdateChat",
+          "o": true,
+          "oneof": "message"
+        },
+        "chatsRemoveChatMember": {
+          "t": 53,
+          "k": "Chats.RemoveChatMember",
+          "o": true,
+          "oneof": "message"
+        },
+        "voiceRequestRoom": {
+          "t": 54,
+          "k": "Voice.RequestRoom",
+          "o": true,
+          "oneof": "message"
+        },
+        "messagesSearch": {
+          "t": 55,
+          "k": "Messages.Search",
+          "o": true,
+          "oneof": "message"
+        },
+        "messagesGetEmbedPreview": {
+          "t": 56,
+          "k": "Messages.GetEmbedPreview",
+          "o": true,
+          "oneof": "message"
+        },
+        "usersGetProfile": {
+          "t": 57,
+          "k": "Users.GetProfile",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesEditDefaultPermissions": {
+          "t": 58,
+          "k": "Communities.EditDefaultPermissions",
+          "o": true,
+          "oneof": "message"
+        },
+        "chatsDeleteChatInvite": {
+          "t": 59,
+          "k": "Chats.DeleteChatInvite",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesGetRemovedMembers": {
+          "t": 60,
+          "k": "Communities.GetRemovedMembers",
+          "o": true,
+          "oneof": "message"
+        },
+        "chatsListChatInvites": {
+          "t": 61,
+          "k": "Chats.ListChatInvites",
+          "o": true,
+          "oneof": "message"
+        },
+        "messagesReportMessage": {
+          "t": 62,
+          "k": "Messages.ReportMessage",
+          "o": true,
+          "oneof": "message"
+        },
+        "reactionsAddReaction": {
+          "t": 63,
+          "k": "Reactions.AddReaction",
+          "o": true,
+          "oneof": "message"
+        },
+        "reactionsRemoveReaction": {
+          "t": 64,
+          "k": "Reactions.RemoveReaction",
+          "o": true,
+          "oneof": "message"
+        },
+        "messagesForwardMessage": {
+          "t": 65,
+          "k": "Messages.ForwardMessage",
+          "o": true,
+          "oneof": "message"
+        },
+        "stickersGetSavedStickers": {
+          "t": 66,
+          "k": "Stickers.GetSavedStickers",
+          "o": true,
+          "oneof": "message"
+        },
+        "stickersGetStickerFiles": {
+          "t": 67,
+          "k": "Stickers.GetStickerFiles",
+          "o": true,
+          "oneof": "message"
+        },
+        "stickersGetStickerPack": {
+          "t": 68,
+          "k": "Stickers.GetStickerPack",
+          "o": true,
+          "oneof": "message"
+        },
+        "stickersAddStickerToPack": {
+          "t": 69,
+          "k": "Stickers.AddStickerToPack",
+          "o": true,
+          "oneof": "message"
+        },
+        "stickersRemoveStickerFromPack": {
+          "t": 70,
+          "k": "Stickers.RemoveStickerFromPack",
+          "o": true,
+          "oneof": "message"
+        },
+        "billingRequestPaymentLink": {
+          "t": 71,
+          "k": "Billing.RequestPaymentLink",
+          "o": true,
+          "oneof": "message"
+        },
+        "billingCancelSubscription": {
+          "t": 72,
+          "k": "Billing.CancelSubscription",
+          "o": true,
+          "oneof": "message"
+        },
+        "settingsChangeNotificationPreferences": {
+          "t": 73,
+          "k": "Settings.ChangeNotificationPreferences",
+          "o": true,
+          "oneof": "message"
+        },
+        "settingsEditProfile": {
+          "t": 74,
+          "k": "Settings.EditProfile",
+          "o": true,
+          "oneof": "message"
+        },
+        "settingsGetAccount": {
+          "t": 75,
+          "k": "Settings.GetAccount",
+          "o": true,
+          "oneof": "message"
+        },
+        "settingsChangePassword": {
+          "t": 76,
+          "k": "Settings.ChangePassword",
+          "o": true,
+          "oneof": "message"
+        },
+        "settingsChangeEmail": {
+          "t": 77,
+          "k": "Settings.ChangeEmail",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesUnbanMembers": {
+          "t": 78,
+          "k": "Communities.UnbanMembers",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesGetMembers": {
+          "t": 79,
+          "k": "Communities.GetMembers",
+          "o": true,
+          "oneof": "message"
+        },
+        "settingsChangeStatus": {
+          "t": 80,
+          "k": "Settings.ChangeStatus",
+          "o": true,
+          "oneof": "message"
+        },
+        "communitiesEditSettings": {
+          "t": 81,
+          "k": "Communities.EditSettings",
+          "o": true,
+          "oneof": "message"
+        },
+        "billingGetSubscription": {
+          "t": 82,
+          "k": "Billing.GetSubscription",
+          "o": true,
+          "oneof": "message"
+        },
+        "settingsSetupTotp": {
+          "t": 83,
+          "k": "Settings.SetupTotp",
+          "o": true,
+          "oneof": "message"
+        }
+      }
+    },
+    "Core.ServerMessage": {
+      "fields": {
+        "id": {
+          "t": 1,
+          "k": "uint32"
+        },
+        "update": {
+          "t": 2,
+          "k": "Updates.Update",
+          "o": true,
+          "oneof": "message"
+        },
+        "result": {
+          "t": 3,
+          "k": "Core.RPCResult",
+          "o": true,
+          "oneof": "message"
+        }
+      }
+    },
+    "Core.RPCResult": {
+      "fields": {
+        "reqId": {
+          "t": 1,
+          "k": "uint32"
+        },
+        "error": {
+          "t": 2,
+          "k": "Core.RPCError",
+          "o": true,
+          "oneof": "result"
+        },
+        "sentMessage": {
+          "t": 3,
+          "k": "Messages.SentMessage",
+          "o": true,
+          "oneof": "result"
+        },
+        "authorization": {
+          "t": 4,
+          "k": "Auth.Authorization",
+          "o": true,
+          "oneof": "result"
+        },
+        "communities": {
+          "t": 5,
+          "k": "Communities.Communities",
+          "o": true,
+          "oneof": "result"
+        },
+        "channels": {
+          "t": 6,
+          "k": "Communities.Channels",
+          "o": true,
+          "oneof": "result"
+        },
+        "messages": {
+          "t": 7,
+          "k": "Messages.Messages",
+          "o": true,
+          "oneof": "result"
+        },
+        "relationships": {
+          "t": 8,
+          "k": "Friends.Relationships",
+          "o": true,
+          "oneof": "result"
+        },
+        "chats": {
+          "t": 9,
+          "k": "Chats.Chats",
+          "o": true,
+          "oneof": "result"
+        },
+        "filePart": {
+          "t": 10,
+          "k": "Media.FilePart",
+          "o": true,
+          "oneof": "result"
+        },
+        "createdInvite": {
+          "t": 11,
+          "k": "Auth.CreatedInvite",
+          "o": true,
+          "oneof": "result"
+        },
+        "memberList": {
+          "t": 13,
+          "k": "Communities.MemberList",
+          "o": true,
+          "oneof": "result"
+        },
+        "initialized": {
+          "t": 14,
+          "k": "Core.Initialized",
+          "o": true,
+          "oneof": "result"
+        },
+        "chat": {
+          "t": 15,
+          "k": "Chats.Chat",
+          "o": true,
+          "oneof": "result"
+        },
+        "communityRoles": {
+          "t": 16,
+          "k": "Communities.CommunityRoles",
+          "o": true,
+          "oneof": "result"
+        },
+        "channelOverride": {
+          "t": 17,
+          "k": "Communities.ChannelOverride",
+          "o": true,
+          "oneof": "result"
+        },
+        "channelOverrides": {
+          "t": 18,
+          "k": "Communities.ChannelOverrides",
+          "o": true,
+          "oneof": "result"
+        },
+        "sessions": {
+          "t": 19,
+          "k": "Auth.Sessions",
+          "o": true,
+          "oneof": "result"
+        },
+        "userDetails": {
+          "t": 20,
+          "k": "Users.UserDetails",
+          "o": true,
+          "oneof": "result"
+        },
+        "removedMembers": {
+          "t": 21,
+          "k": "Communities.RemovedMembers",
+          "o": true,
+          "oneof": "result"
+        },
+        "group": {
+          "t": 22,
+          "k": "Types.Group",
+          "o": true,
+          "oneof": "result"
+        },
+        "invitePreview": {
+          "t": 23,
+          "k": "Auth.InvitePreview",
+          "o": true,
+          "oneof": "result"
+        },
+        "roomInfo": {
+          "t": 24,
+          "k": "Voice.RoomInfo",
+          "o": true,
+          "oneof": "result"
+        },
+        "mediaEmbed": {
+          "t": 25,
+          "k": "Media.MediaEmbed",
+          "o": true,
+          "oneof": "result"
+        },
+        "profile": {
+          "t": 26,
+          "k": "Users.Profile",
+          "o": true,
+          "oneof": "result"
+        },
+        "inviteList": {
+          "t": 27,
+          "k": "Auth.InviteList",
+          "o": true,
+          "oneof": "result"
+        },
+        "savedStickers": {
+          "t": 28,
+          "k": "Stickers.SavedStickers",
+          "o": true,
+          "oneof": "result"
+        },
+        "files": {
+          "t": 29,
+          "k": "Media.Files",
+          "o": true,
+          "oneof": "result"
+        },
+        "stickerPack": {
+          "t": 30,
+          "k": "Stickers.StickerPack",
+          "o": true,
+          "oneof": "result"
+        },
+        "paymentLink": {
+          "t": 31,
+          "k": "Billing.PaymentLink",
+          "o": true,
+          "oneof": "result"
+        },
+        "account": {
+          "t": 32,
+          "k": "Settings.Account",
+          "o": true,
+          "oneof": "result"
+        },
+        "members": {
+          "t": 33,
+          "k": "Communities.Members",
+          "o": true,
+          "oneof": "result"
+        },
+        "communitySettings": {
+          "t": 34,
+          "k": "Communities.CommunitySettings",
+          "o": true,
+          "oneof": "result"
+        },
+        "subscription": {
+          "t": 35,
+          "k": "Billing.Subscription",
+          "o": true,
+          "oneof": "result"
+        },
+        "totp": {
+          "t": 36,
+          "k": "Settings.Totp",
+          "o": true,
+          "oneof": "result"
+        }
+      }
+    },
+    "Core.RPCError": {
+      "fields": {
+        "errorCode": {
+          "t": 1,
+          "k": "uint32"
+        },
+        "errorMessage": {
+          "t": 2,
+          "k": "string"
+        }
+      }
+    },
+    "Core.Initialize": {
+      "fields": {
+        "clientId": {
+          "t": 1,
+          "k": "uint32"
+        },
+        "deviceType": {
+          "t": 2,
+          "k": "string"
+        },
+        "deviceVersion": {
+          "t": 3,
+          "k": "string"
+        },
+        "appVersion": {
+          "t": 4,
+          "k": "string"
+        },
+        "noSubscribe": {
+          "t": 5,
+          "k": "bool"
+        }
+      }
+    },
+    "Core.Initialized": {
+      "fields": {
+        "entrypoints": {
+          "t": 1,
+          "k": "Core.Entrypoints"
+        },
+        "vapidPublicKey": {
+          "t": 2,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Core.Entrypoints": {
+      "fields": {
+        "entrypoints": {
+          "t": 1,
+          "k": "Types.Entrypoint",
+          "r": true
+        }
+      }
+    }
+  }
+}

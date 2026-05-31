@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "namespace": "Voice",
+  "imports": [
+    "refs.protodef"
+  ],
+  "messages": {
+    "Voice.RoomInfo": {
+      "fields": {
+        "roomId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "chatRef": {
+          "t": 2,
+          "k": "Refs.ChatRef"
+        },
+        "endpoint": {
+          "t": 3,
+          "k": "string"
+        },
+        "token": {
+          "t": 4,
+          "k": "string"
+        }
+      }
+    },
+    "Voice.RoomParticipant": {
+      "fields": {
+        "roomId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "sessionId": {
+          "t": 2,
+          "k": "string"
+        },
+        "userId": {
+          "t": 3,
+          "k": "fixed64"
+        },
+        "muted": {
+          "t": 4,
+          "k": "bool"
+        },
+        "deafened": {
+          "t": 5,
+          "k": "bool"
+        },
+        "videoAvailable": {
+          "t": 7,
+          "k": "bool"
+        },
+        "screenAvailable": {
+          "t": 8,
+          "k": "bool"
+        }
+      }
+    },
+    "Voice.RequestRoom": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        }
+      }
+    },
+    "Voice.UpdateRoomState": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "state": {
+          "t": 2,
+          "k": "Voice.RoomState"
+        }
+      }
+    },
+    "Voice.RoomState": {
+      "fields": {
+        "roomId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "participants": {
+          "t": 3,
+          "k": "Voice.RoomParticipant",
+          "r": true
+        }
+      }
+    },
+    "Voice.UpdateRoomParticipant": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "participant": {
+          "t": 2,
+          "k": "Voice.RoomParticipant"
+        }
+      }
+    }
+  }
+}

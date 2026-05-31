@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "namespace": "Stickers",
+  "imports": [
+    "media.protodef",
+    "refs.protodef"
+  ],
+  "messages": {
+    "Stickers.GetSavedStickers": {
+      "fields": {
+        "since": {
+          "t": 1,
+          "k": "fixed64",
+          "o": true
+        }
+      }
+    },
+    "Stickers.SavedStickers": {
+      "fields": {
+        "savedPacks": {
+          "t": 1,
+          "k": "Stickers.StickerPack",
+          "r": true
+        }
+      }
+    },
+    "Stickers.StickerPack": {
+      "fields": {
+        "id": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "type": {
+          "t": 2,
+          "k": "enum"
+        },
+        "name": {
+          "t": 3,
+          "k": "string"
+        },
+        "stickers": {
+          "t": 4,
+          "k": "Media.File",
+          "r": true
+        }
+      }
+    },
+    "Stickers.GetStickerFiles": {
+      "fields": {
+        "stickerIds": {
+          "t": 1,
+          "k": "fixed64",
+          "r": true,
+          "packed": true
+        }
+      }
+    },
+    "Stickers.GetStickerPack": {
+      "fields": {
+        "pack": {
+          "t": 1,
+          "k": "Refs.StickerPackRef"
+        }
+      }
+    },
+    "Stickers.AddStickerToPack": {
+      "fields": {
+        "pack": {
+          "t": 1,
+          "k": "Refs.StickerPackRef"
+        },
+        "sticker": {
+          "t": 2,
+          "k": "Media.MediaRefUploadedFile"
+        }
+      }
+    },
+    "Stickers.RemoveStickerFromPack": {
+      "fields": {
+        "pack": {
+          "t": 1,
+          "k": "Refs.StickerPackRef"
+        },
+        "stickerId": {
+          "t": 2,
+          "k": "fixed64"
+        }
+      }
+    }
+  }
+}

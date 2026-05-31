@@ -1,0 +1,263 @@
+{
+  "version": 1,
+  "namespace": "Auth",
+  "imports": [
+    "types.protodef"
+  ],
+  "messages": {
+    "Auth.SignIn": {
+      "fields": {
+        "email": {
+          "t": 1,
+          "k": "string"
+        },
+        "password": {
+          "t": 2,
+          "k": "string"
+        },
+        "totp": {
+          "t": 3,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Auth.SignUp": {
+      "fields": {
+        "email": {
+          "t": 1,
+          "k": "string",
+          "o": true
+        },
+        "password": {
+          "t": 2,
+          "k": "string",
+          "o": true
+        },
+        "name": {
+          "t": 3,
+          "k": "string"
+        }
+      }
+    },
+    "Auth.Authorize": {
+      "fields": {
+        "token": {
+          "t": 5,
+          "k": "string"
+        }
+      }
+    },
+    "Auth.Authorization": {
+      "fields": {
+        "token": {
+          "t": 1,
+          "k": "string"
+        },
+        "user": {
+          "t": 2,
+          "k": "Types.User"
+        },
+        "sessionId": {
+          "t": 3,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Auth.GetSessions": {
+      "fields": {}
+    },
+    "Auth.Sessions": {
+      "fields": {
+        "sessions": {
+          "t": 1,
+          "k": "Auth.Session",
+          "r": true
+        },
+        "current": {
+          "t": 2,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Auth.Session": {
+      "fields": {
+        "id": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "clientId": {
+          "t": 2,
+          "k": "uint32"
+        },
+        "deviceType": {
+          "t": 3,
+          "k": "string"
+        },
+        "deviceVersion": {
+          "t": 4,
+          "k": "string"
+        },
+        "appName": {
+          "t": 5,
+          "k": "string"
+        },
+        "appVersion": {
+          "t": 6,
+          "k": "string"
+        },
+        "lastActive": {
+          "t": 7,
+          "k": "fixed64"
+        },
+        "country": {
+          "t": 8,
+          "k": "string",
+          "o": true
+        },
+        "region": {
+          "t": 9,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Auth.RevokeSessions": {
+      "fields": {
+        "sessionIds": {
+          "t": 1,
+          "k": "fixed64",
+          "r": true,
+          "packed": true
+        }
+      }
+    },
+    "Auth.ResetPassword": {
+      "fields": {
+        "email": {
+          "t": 1,
+          "k": "string"
+        },
+        "confirm": {
+          "t": 2,
+          "k": "Auth.ResetPassword.ResetPasswordConfirm",
+          "o": true
+        }
+      }
+    },
+    "Auth.ResetPassword.ResetPasswordConfirm": {
+      "fields": {
+        "code": {
+          "t": 1,
+          "k": "string"
+        },
+        "newPassword": {
+          "t": 2,
+          "k": "string"
+        }
+      }
+    },
+    "Auth.VerifyEmail": {
+      "fields": {
+        "email": {
+          "t": 1,
+          "k": "string"
+        },
+        "code": {
+          "t": 2,
+          "k": "string"
+        }
+      }
+    },
+    "Auth.ResendEmailVerification": {
+      "fields": {
+        "email": {
+          "t": 1,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Auth.LookupInvite": {
+      "fields": {
+        "code": {
+          "t": 1,
+          "k": "string"
+        }
+      }
+    },
+    "Auth.CreatedInvite": {
+      "fields": {
+        "code": {
+          "t": 1,
+          "k": "string"
+        }
+      }
+    },
+    "Auth.InvitePreview": {
+      "fields": {
+        "code": {
+          "t": 1,
+          "k": "string"
+        },
+        "creatorId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "targetId": {
+          "t": 3,
+          "k": "fixed64"
+        },
+        "targetType": {
+          "t": 4,
+          "k": "enum"
+        },
+        "expiresAt": {
+          "t": 5,
+          "k": "fixed64",
+          "o": true
+        },
+        "creator": {
+          "t": 6,
+          "k": "Types.User",
+          "o": true
+        },
+        "community": {
+          "t": 7,
+          "k": "Types.Community",
+          "o": true,
+          "oneof": "targetInfo"
+        },
+        "chat": {
+          "t": 8,
+          "k": "Types.Group",
+          "o": true,
+          "oneof": "targetInfo"
+        },
+        "user": {
+          "t": 9,
+          "k": "Types.User",
+          "o": true,
+          "oneof": "targetInfo"
+        }
+      }
+    },
+    "Auth.UseInvite": {
+      "fields": {
+        "code": {
+          "t": 1,
+          "k": "string"
+        }
+      }
+    },
+    "Auth.InviteList": {
+      "fields": {
+        "invites": {
+          "t": 1,
+          "k": "Auth.InvitePreview",
+          "r": true
+        }
+      }
+    }
+  }
+}

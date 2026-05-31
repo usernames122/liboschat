@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "namespace": "Settings",
+  "imports": [
+    "media.protodef",
+    "refs.protodef",
+    "types.protodef"
+  ],
+  "messages": {
+    "Settings.EditProfilePhoto": {
+      "fields": {
+        "file": {
+          "t": 1,
+          "k": "Media.UploadedFileRef",
+          "o": true
+        }
+      }
+    },
+    "Settings.RegisterPushSubscription": {
+      "fields": {
+        "web": {
+          "t": 1,
+          "k": "Settings.RegisterPushSubscription.WebPush",
+          "o": true,
+          "oneof": "subscription"
+        },
+        "push": {
+          "t": 2,
+          "k": "Settings.RegisterPushSubscription.Push",
+          "o": true,
+          "oneof": "subscription"
+        }
+      }
+    },
+    "Settings.RegisterPushSubscription.WebPush": {
+      "fields": {
+        "endpoint": {
+          "t": 1,
+          "k": "string"
+        },
+        "p256dh": {
+          "t": 2,
+          "k": "string"
+        },
+        "auth": {
+          "t": 3,
+          "k": "string"
+        }
+      }
+    },
+    "Settings.RegisterPushSubscription.Push": {
+      "fields": {
+        "type": {
+          "t": 1,
+          "k": "enum"
+        },
+        "token": {
+          "t": 2,
+          "k": "string"
+        }
+      }
+    },
+    "Settings.UnregisterPushSubscription": {
+      "fields": {}
+    },
+    "Settings.ChangeNotificationPreferences": {
+      "fields": {
+        "prefs": {
+          "t": 1,
+          "k": "enum"
+        },
+        "chatRef": {
+          "t": 2,
+          "k": "Refs.ChatRef",
+          "o": true,
+          "oneof": "scope"
+        },
+        "communityId": {
+          "t": 3,
+          "k": "fixed64",
+          "o": true,
+          "oneof": "scope"
+        }
+      }
+    },
+    "Settings.EditProfile": {
+      "fields": {
+        "name": {
+          "t": 1,
+          "k": "string",
+          "o": true
+        },
+        "username": {
+          "t": 2,
+          "k": "string",
+          "o": true
+        },
+        "bio": {
+          "t": 3,
+          "k": "string",
+          "o": true
+        },
+        "icon": {
+          "t": 4,
+          "k": "fixed64",
+          "o": true
+        }
+      }
+    },
+    "Settings.GetAccount": {
+      "fields": {}
+    },
+    "Settings.Account": {
+      "fields": {
+        "email": {
+          "t": 1,
+          "k": "string",
+          "o": true
+        },
+        "confirmed": {
+          "t": 2,
+          "k": "bool"
+        },
+        "hasPassword": {
+          "t": 3,
+          "k": "bool"
+        },
+        "totpEnabled": {
+          "t": 4,
+          "k": "bool"
+        }
+      }
+    },
+    "Settings.ChangePassword": {
+      "fields": {
+        "currentPassword": {
+          "t": 1,
+          "k": "string"
+        },
+        "newPassword": {
+          "t": 2,
+          "k": "string"
+        },
+        "revokeSessions": {
+          "t": 3,
+          "k": "bool"
+        }
+      }
+    },
+    "Settings.ChangeEmail": {
+      "fields": {
+        "newEmail": {
+          "t": 1,
+          "k": "string"
+        }
+      }
+    },
+    "Settings.ChangeStatus": {
+      "fields": {
+        "status": {
+          "t": 2,
+          "k": "enum"
+        },
+        "activities": {
+          "t": 3,
+          "k": "Types.UserStatus.Activity",
+          "r": true
+        }
+      }
+    },
+    "Settings.SetupTotp": {
+      "fields": {
+        "enabled": {
+          "t": 1,
+          "k": "bool"
+        },
+        "code": {
+          "t": 2,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Settings.Totp": {
+      "fields": {
+        "enabled": {
+          "t": 1,
+          "k": "bool"
+        },
+        "url": {
+          "t": 2,
+          "k": "string",
+          "o": true
+        },
+        "backupCodes": {
+          "t": 3,
+          "k": "Settings.BackupCode",
+          "r": true
+        }
+      }
+    },
+    "Settings.BackupCode": {
+      "fields": {
+        "code": {
+          "t": 1,
+          "k": "string"
+        },
+        "used": {
+          "t": 2,
+          "k": "bool"
+        }
+      }
+    }
+  }
+}

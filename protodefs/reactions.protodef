@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "namespace": "Reactions",
+  "imports": [
+    "refs.protodef"
+  ],
+  "messages": {
+    "Reactions.AddReaction": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "messageId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "emoji": {
+          "t": 3,
+          "k": "Reactions.ReactionEmoji"
+        }
+      }
+    },
+    "Reactions.RemoveReaction": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "messageId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "emoji": {
+          "t": 3,
+          "k": "Reactions.ReactionEmoji"
+        }
+      }
+    },
+    "Reactions.ReactionEmoji": {
+      "fields": {
+        "unicodeEmoji": {
+          "t": 1,
+          "k": "string",
+          "o": true,
+          "oneof": "emoji"
+        }
+      }
+    },
+    "Reactions.MessageReactions": {
+      "fields": {
+        "messageId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "reactionFields": {
+          "t": 2,
+          "k": "Reactions.MessageReactionField",
+          "r": true
+        }
+      }
+    },
+    "Reactions.MessageReactionField": {
+      "fields": {
+        "emoji": {
+          "t": 1,
+          "k": "Reactions.ReactionEmoji"
+        },
+        "count": {
+          "t": 2,
+          "k": "uint32"
+        },
+        "me": {
+          "t": 3,
+          "k": "bool"
+        },
+        "previewUserIds": {
+          "t": 4,
+          "k": "fixed64",
+          "r": true,
+          "packed": true
+        }
+      }
+    }
+  }
+}

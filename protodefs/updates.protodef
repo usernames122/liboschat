@@ -1,0 +1,493 @@
+{
+  "version": 1,
+  "namespace": "Updates",
+  "imports": [
+    "types.protodef",
+    "refs.protodef",
+    "chats.protodef",
+    "voice.protodef",
+    "reactions.protodef"
+  ],
+  "messages": {
+    "Updates.Update": {
+      "fields": {
+        "messageCreated": {
+          "t": 1,
+          "k": "Updates.UpdateMessageCreated",
+          "o": true,
+          "oneof": "update"
+        },
+        "channel": {
+          "t": 2,
+          "k": "Updates.UpdateChannel",
+          "o": true,
+          "oneof": "update"
+        },
+        "messageDeleted": {
+          "t": 3,
+          "k": "Updates.UpdateMessageDeleted",
+          "o": true,
+          "oneof": "update"
+        },
+        "userStatus": {
+          "t": 4,
+          "k": "Updates.UpdateUserStatus",
+          "o": true,
+          "oneof": "update"
+        },
+        "user": {
+          "t": 5,
+          "k": "Updates.UpdateUser",
+          "o": true,
+          "oneof": "update"
+        },
+        "community": {
+          "t": 6,
+          "k": "Updates.UpdateCommunity",
+          "o": true,
+          "oneof": "update"
+        },
+        "channelDeleted": {
+          "t": 7,
+          "k": "Updates.UpdateChannelDeleted",
+          "o": true,
+          "oneof": "update"
+        },
+        "message": {
+          "t": 8,
+          "k": "Updates.UpdateMessage",
+          "o": true,
+          "oneof": "update"
+        },
+        "chatTyping": {
+          "t": 9,
+          "k": "Updates.UpdateChatTyping",
+          "o": true,
+          "oneof": "update"
+        },
+        "communityMember": {
+          "t": 10,
+          "k": "Updates.UpdateCommunityMember",
+          "o": true,
+          "oneof": "update"
+        },
+        "communityDeleted": {
+          "t": 11,
+          "k": "Updates.UpdateCommunityDeleted",
+          "o": true,
+          "oneof": "update"
+        },
+        "conversationPermissions": {
+          "t": 12,
+          "k": "Updates.UpdateConversationPermissions",
+          "o": true,
+          "oneof": "update"
+        },
+        "chat": {
+          "t": 13,
+          "k": "Updates.UpdateChat",
+          "o": true,
+          "oneof": "update"
+        },
+        "sessionDeleted": {
+          "t": 14,
+          "k": "Updates.UpdateSessionDeleted",
+          "o": true,
+          "oneof": "update"
+        },
+        "communityUnavailable": {
+          "t": 15,
+          "k": "Updates.UpdateCommunityUnavailable",
+          "o": true,
+          "oneof": "update"
+        },
+        "memberList": {
+          "t": 16,
+          "k": "Updates.UpdateMemberList",
+          "o": true,
+          "oneof": "update"
+        },
+        "communityMemberDeleted": {
+          "t": 17,
+          "k": "Updates.UpdateCommunityMemberDeleted",
+          "o": true,
+          "oneof": "update"
+        },
+        "updateUserRelationship": {
+          "t": 18,
+          "k": "Updates.UpdateUserRelationship",
+          "o": true,
+          "oneof": "update"
+        },
+        "updateUserRelationshipDeleted": {
+          "t": 19,
+          "k": "Updates.UpdateUserRelationshipDeleted",
+          "o": true,
+          "oneof": "update"
+        },
+        "group": {
+          "t": 20,
+          "k": "Updates.UpdateGroup",
+          "o": true,
+          "oneof": "update"
+        },
+        "roomState": {
+          "t": 21,
+          "k": "Voice.UpdateRoomState",
+          "o": true,
+          "oneof": "update"
+        },
+        "roomParticipant": {
+          "t": 22,
+          "k": "Voice.UpdateRoomParticipant",
+          "o": true,
+          "oneof": "update"
+        },
+        "messageReactions": {
+          "t": 23,
+          "k": "Updates.UpdateMessageReactions",
+          "o": true,
+          "oneof": "update"
+        },
+        "conversationLastRead": {
+          "t": 24,
+          "k": "Updates.UpdateConversationLastRead",
+          "o": true,
+          "oneof": "update"
+        },
+        "communityMemberCreated": {
+          "t": 25,
+          "k": "Updates.UpdateCommunityMemberCreated",
+          "o": true,
+          "oneof": "update"
+        }
+      }
+    },
+    "Updates.UpdateMessageCreated": {
+      "fields": {
+        "message": {
+          "t": 1,
+          "k": "Types.Message"
+        },
+        "channelUnreadCount": {
+          "t": 2,
+          "k": "uint32"
+        },
+        "author": {
+          "t": 3,
+          "k": "Types.User",
+          "o": true
+        }
+      }
+    },
+    "Updates.UpdateMessage": {
+      "fields": {
+        "message": {
+          "t": 1,
+          "k": "Types.Message"
+        }
+      }
+    },
+    "Updates.UpdateChannel": {
+      "fields": {
+        "channel": {
+          "t": 1,
+          "k": "Types.Channel"
+        }
+      }
+    },
+    "Updates.UpdateChannelDeleted": {
+      "fields": {
+        "channel": {
+          "t": 1,
+          "k": "Refs.ChannelRef"
+        }
+      }
+    },
+    "Updates.UpdateMessageDeleted": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "messageIds": {
+          "t": 2,
+          "k": "fixed64",
+          "r": true,
+          "packed": true
+        }
+      }
+    },
+    "Updates.UpdateUserStatus": {
+      "fields": {
+        "userId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "status": {
+          "t": 2,
+          "k": "Types.UserStatus"
+        }
+      }
+    },
+    "Updates.UpdateUser": {
+      "fields": {
+        "userId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "user": {
+          "t": 2,
+          "k": "Types.User"
+        }
+      }
+    },
+    "Updates.UpdateCommunity": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "community": {
+          "t": 2,
+          "k": "Types.Community"
+        }
+      }
+    },
+    "Updates.UpdateCommunityDeleted": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Updates.UpdateChatTyping": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "userId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "typing": {
+          "t": 3,
+          "k": "bool"
+        }
+      }
+    },
+    "Updates.UpdateCommunityMember": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "memberId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "member": {
+          "t": 3,
+          "k": "Types.CommunityMember"
+        }
+      }
+    },
+    "Updates.UpdateCommunityMemberDeleted": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "memberId": {
+          "t": 2,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Updates.UpdateCommunityMemberCreated": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "memberId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "member": {
+          "t": 3,
+          "k": "Types.CommunityMember",
+          "o": true
+        },
+        "user": {
+          "t": 4,
+          "k": "Types.User",
+          "o": true
+        }
+      }
+    },
+    "Updates.UpdateConversationPermissions": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "permissions": {
+          "t": 2,
+          "k": "Types.PermissionOverrides"
+        }
+      }
+    },
+    "Updates.UpdateChat": {
+      "fields": {
+        "chat": {
+          "t": 1,
+          "k": "Chats.Chat"
+        }
+      }
+    },
+    "Updates.UpdateSessionDeleted": {
+      "fields": {
+        "sessionId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Updates.UpdateCommunityUnavailable": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Updates.UpdateMemberList": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64",
+          "o": true
+        },
+        "channelId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "entries": {
+          "t": 4,
+          "k": "Updates.MemberListEntry",
+          "r": true
+        }
+      }
+    },
+    "Updates.MemberListEntry": {
+      "fields": {
+        "user": {
+          "t": 1,
+          "k": "Updates.MemberListEntryUser",
+          "o": true,
+          "oneof": "entry"
+        },
+        "divider": {
+          "t": 2,
+          "k": "Updates.MemberListEntryDivider",
+          "o": true,
+          "oneof": "entry"
+        }
+      }
+    },
+    "Updates.MemberListEntryUser": {
+      "fields": {
+        "user": {
+          "t": 1,
+          "k": "Types.User"
+        },
+        "nickname": {
+          "t": 2,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Updates.MemberListEntryDivider": {
+      "fields": {
+        "online": {
+          "t": 1,
+          "k": "bool",
+          "o": true,
+          "oneof": "inner"
+        },
+        "roleId": {
+          "t": 2,
+          "k": "fixed64",
+          "o": true,
+          "oneof": "inner"
+        },
+        "memberCount": {
+          "t": 3,
+          "k": "uint32"
+        }
+      }
+    },
+    "Updates.UpdateUserRelationship": {
+      "fields": {
+        "relationship": {
+          "t": 1,
+          "k": "Types.Relationship"
+        }
+      }
+    },
+    "Updates.UpdateUserRelationshipDeleted": {
+      "fields": {
+        "otherUserId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Updates.UpdateGroup": {
+      "fields": {
+        "group": {
+          "t": 1,
+          "k": "Types.Group"
+        },
+        "users": {
+          "t": 2,
+          "k": "Types.User",
+          "r": true
+        }
+      }
+    },
+    "Updates.UpdateMessageReactions": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "reactions": {
+          "t": 2,
+          "k": "Reactions.MessageReactions"
+        }
+      }
+    },
+    "Updates.UpdateConversationLastRead": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "lastReadMessageId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "unreadCount": {
+          "t": 3,
+          "k": "uint32",
+          "o": true
+        }
+      }
+    }
+  }
+}

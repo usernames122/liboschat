@@ -1,0 +1,552 @@
+{
+  "version": 1,
+  "namespace": "Communities",
+  "imports": [
+    "refs.protodef",
+    "types.protodef",
+    "media.protodef",
+    "updates.protodef"
+  ],
+  "messages": {
+    "Communities.GetCommunities": {
+      "fields": {}
+    },
+    "Communities.CommunityUserInfo": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "unreadCount": {
+          "t": 2,
+          "k": "int32"
+        }
+      }
+    },
+    "Communities.Communities": {
+      "fields": {
+        "communities": {
+          "t": 1,
+          "k": "Types.Community",
+          "r": true
+        },
+        "communityUserInfo": {
+          "t": 2,
+          "k": "Communities.CommunityUserInfo",
+          "r": true
+        },
+        "unavailable": {
+          "t": 3,
+          "k": "fixed64",
+          "r": true,
+          "packed": true
+        }
+      }
+    },
+    "Communities.GetChannels": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Communities.Channels": {
+      "fields": {
+        "conversations": {
+          "t": 1,
+          "k": "Types.Conversation",
+          "r": true
+        },
+        "channels": {
+          "t": 2,
+          "k": "Types.Channel",
+          "r": true
+        },
+        "messages": {
+          "t": 3,
+          "k": "Types.Message",
+          "r": true
+        }
+      }
+    },
+    "Communities.CreateCommunity": {
+      "fields": {
+        "name": {
+          "t": 1,
+          "k": "string"
+        }
+      }
+    },
+    "Communities.CreateChannel": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "name": {
+          "t": 2,
+          "k": "string"
+        },
+        "type": {
+          "t": 3,
+          "k": "enum"
+        },
+        "parentId": {
+          "t": 4,
+          "k": "fixed64",
+          "o": true
+        }
+      }
+    },
+    "Communities.DeleteChannel": {
+      "fields": {
+        "channel": {
+          "t": 1,
+          "k": "Refs.ChannelRef"
+        }
+      }
+    },
+    "Communities.EditChannel": {
+      "fields": {
+        "channel": {
+          "t": 1,
+          "k": "Refs.ChannelRef"
+        },
+        "name": {
+          "t": 2,
+          "k": "string",
+          "o": true
+        },
+        "position": {
+          "t": 3,
+          "k": "uint32",
+          "o": true
+        },
+        "parentId": {
+          "t": 4,
+          "k": "fixed64",
+          "o": true
+        }
+      }
+    },
+    "Communities.GetChannelMembers": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "channelId": {
+          "t": 2,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Communities.Members": {
+      "fields": {
+        "members": {
+          "t": 1,
+          "k": "Types.CommunityMember",
+          "r": true
+        },
+        "users": {
+          "t": 2,
+          "k": "Types.User",
+          "r": true
+        }
+      }
+    },
+    "Communities.MemberList": {
+      "fields": {
+        "entries": {
+          "t": 1,
+          "k": "Updates.MemberListEntry",
+          "r": true
+        }
+      }
+    },
+    "Communities.EditPhoto": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "file": {
+          "t": 2,
+          "k": "Media.UploadedFileRef",
+          "o": true
+        }
+      }
+    },
+    "Communities.GetRoles": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Communities.CommunityRoles": {
+      "fields": {
+        "roles": {
+          "t": 1,
+          "k": "Types.CommunityRole",
+          "r": true
+        },
+        "defaultPermissions": {
+          "t": 2,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Communities.CreateRole": {
+      "fields": {
+        "communityId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "name": {
+          "t": 3,
+          "k": "string"
+        },
+        "permissions": {
+          "t": 4,
+          "k": "fixed64"
+        },
+        "priority": {
+          "t": 5,
+          "k": "uint32"
+        },
+        "color": {
+          "t": 6,
+          "k": "uint32"
+        },
+        "separated": {
+          "t": 7,
+          "k": "bool"
+        },
+        "public": {
+          "t": 8,
+          "k": "bool"
+        }
+      }
+    },
+    "Communities.EditRole": {
+      "fields": {
+        "id": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "communityId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "name": {
+          "t": 3,
+          "k": "string"
+        },
+        "permissions": {
+          "t": 4,
+          "k": "fixed64"
+        },
+        "priority": {
+          "t": 5,
+          "k": "uint32"
+        },
+        "color": {
+          "t": 6,
+          "k": "uint32"
+        },
+        "separated": {
+          "t": 7,
+          "k": "bool"
+        },
+        "public": {
+          "t": 8,
+          "k": "bool"
+        }
+      }
+    },
+    "Communities.DeleteRole": {
+      "fields": {
+        "id": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "communityId": {
+          "t": 2,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Communities.EditMember": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "memberId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "nickname": {
+          "t": 3,
+          "k": "string",
+          "o": true
+        },
+        "roleIds": {
+          "t": 4,
+          "k": "Communities.CommunityMemberRoleIds",
+          "o": true
+        }
+      }
+    },
+    "Communities.CommunityMemberRoleIds": {
+      "fields": {
+        "roleIds": {
+          "t": 1,
+          "k": "fixed64",
+          "r": true,
+          "packed": true
+        }
+      }
+    },
+    "Communities.GetChannelOverrides": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "channelId": {
+          "t": 2,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Communities.ChannelOverrides": {
+      "fields": {
+        "overrides": {
+          "t": 1,
+          "k": "Types.ChannelOverride",
+          "r": true
+        }
+      }
+    },
+    "Communities.CreateChannelOverride": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "channelId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "roleId": {
+          "t": 3,
+          "k": "fixed64"
+        },
+        "permissions": {
+          "t": 4,
+          "k": "Types.PermissionOverrides"
+        }
+      }
+    },
+    "Communities.ChannelOverride": {
+      "fields": {
+        "override": {
+          "t": 1,
+          "k": "Types.ChannelOverride"
+        }
+      }
+    },
+    "Communities.DeleteChannelOverride": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "channelId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "roleId": {
+          "t": 3,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Communities.LeaveCommunity": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Communities.DeleteCommunity": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Communities.EditCommunity": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "name": {
+          "t": 2,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Communities.RemoveMembers": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "memberIds": {
+          "t": 2,
+          "k": "fixed64",
+          "r": true,
+          "packed": true
+        },
+        "until": {
+          "t": 3,
+          "k": "fixed64",
+          "o": true
+        },
+        "deleteMessagesSince": {
+          "t": 4,
+          "k": "fixed64",
+          "o": true
+        },
+        "reason": {
+          "t": 5,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Communities.RemovedMembers": {
+      "fields": {
+        "members": {
+          "t": 1,
+          "k": "Communities.RemovedMembers.RemovedMember",
+          "r": true
+        }
+      }
+    },
+    "Communities.RemovedMembers.RemovedMember": {
+      "fields": {
+        "userId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "user": {
+          "t": 2,
+          "k": "Types.User"
+        },
+        "until": {
+          "t": 3,
+          "k": "fixed64",
+          "o": true
+        },
+        "reason": {
+          "t": 4,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Communities.GetRemovedMembers": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Communities.EditDefaultPermissions": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "permissions": {
+          "t": 2,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Communities.UnbanMembers": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "memberIds": {
+          "t": 2,
+          "k": "fixed64",
+          "r": true,
+          "packed": true
+        }
+      }
+    },
+    "Communities.GetMembers": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "memberIds": {
+          "t": 2,
+          "k": "fixed64",
+          "r": true,
+          "packed": true
+        }
+      }
+    },
+    "Communities.EditSettings": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "settings": {
+          "t": 2,
+          "k": "Communities.CommunitySettings"
+        }
+      }
+    },
+    "Communities.CommunitySettings": {
+      "fields": {
+        "systemMessages": {
+          "t": 1,
+          "k": "Communities.CommunitySettings.SystemMessages",
+          "o": true
+        }
+      }
+    },
+    "Communities.CommunitySettings.SystemMessages": {
+      "fields": {
+        "channelId": {
+          "t": 1,
+          "k": "fixed64",
+          "o": true
+        },
+        "joinMessages": {
+          "t": 2,
+          "k": "bool",
+          "o": true
+        }
+      }
+    }
+  }
+}

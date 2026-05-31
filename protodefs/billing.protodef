@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "namespace": "Billing",
+  "imports": [],
+  "messages": {
+    "Billing.RequestPaymentLink": {
+      "fields": {
+        "redirectUrl": {
+          "t": 1,
+          "k": "string"
+        },
+        "plan": {
+          "t": 2,
+          "k": "string"
+        },
+        "billingPeriod": {
+          "t": 3,
+          "k": "string"
+        }
+      }
+    },
+    "Billing.PaymentLink": {
+      "fields": {
+        "url": {
+          "t": 1,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Billing.CancelSubscription": {
+      "fields": {}
+    },
+    "Billing.GetSubscription": {
+      "fields": {}
+    },
+    "Billing.Subscription": {
+      "fields": {
+        "active": {
+          "t": 1,
+          "k": "bool"
+        },
+        "since": {
+          "t": 2,
+          "k": "fixed64",
+          "o": true
+        },
+        "nextRenewalDate": {
+          "t": 3,
+          "k": "uint64",
+          "o": true
+        },
+        "lastCardDigits": {
+          "t": 4,
+          "k": "string",
+          "o": true
+        },
+        "method": {
+          "t": 5,
+          "k": "string",
+          "o": true
+        },
+        "endDate": {
+          "t": 6,
+          "k": "uint64",
+          "o": true
+        }
+      }
+    }
+  }
+}

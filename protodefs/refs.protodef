@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "namespace": "Refs",
+  "imports": [],
+  "messages": {
+    "Refs.ChatRef": {
+      "fields": {
+        "user": {
+          "t": 1,
+          "k": "Refs.UserRef",
+          "o": true,
+          "oneof": "ref"
+        },
+        "channel": {
+          "t": 2,
+          "k": "Refs.ChannelRef",
+          "o": true,
+          "oneof": "ref"
+        },
+        "group": {
+          "t": 3,
+          "k": "Refs.GroupRef",
+          "o": true,
+          "oneof": "ref"
+        },
+        "self": {
+          "t": 4,
+          "k": "Refs.RefSelf",
+          "o": true,
+          "oneof": "ref"
+        }
+      }
+    },
+    "Refs.UserRef": {
+      "fields": {
+        "userId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Refs.RefSelf": {
+      "fields": {}
+    },
+    "Refs.ChannelRef": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "channelId": {
+          "t": 2,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Refs.GroupRef": {
+      "fields": {
+        "groupId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Refs.StickerPackRef": {
+      "fields": {
+        "id": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    }
+  }
+}

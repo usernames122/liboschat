@@ -1,0 +1,513 @@
+{
+  "version": 1,
+  "namespace": "Types",
+  "imports": [
+    "refs.protodef",
+    "media.protodef"
+  ],
+  "messages": {
+    "Types.User": {
+      "fields": {
+        "id": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "name": {
+          "t": 2,
+          "k": "string"
+        },
+        "username": {
+          "t": 3,
+          "k": "string",
+          "o": true
+        },
+        "status": {
+          "t": 4,
+          "k": "Types.UserStatus",
+          "o": true
+        },
+        "photo": {
+          "t": 5,
+          "k": "Types.ChatPhoto",
+          "o": true
+        },
+        "bot": {
+          "t": 6,
+          "k": "bool"
+        },
+        "icon": {
+          "t": 7,
+          "k": "fixed64",
+          "o": true
+        },
+        "color": {
+          "t": 8,
+          "k": "uint32",
+          "o": true
+        }
+      }
+    },
+    "Types.ChatPhoto": {
+      "fields": {
+        "fileId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "preview": {
+          "t": 2,
+          "k": "bytes"
+        }
+      }
+    },
+    "Types.PermissionOverrides": {
+      "fields": {
+        "pos": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "neg": {
+          "t": 2,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Types.Conversation": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "lastMessageId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "lastReadMessageId": {
+          "t": 3,
+          "k": "fixed64"
+        },
+        "unreadCount": {
+          "t": 5,
+          "k": "uint32"
+        },
+        "draft": {
+          "t": 6,
+          "k": "string",
+          "o": true
+        },
+        "permissions": {
+          "t": 7,
+          "k": "Types.PermissionOverrides",
+          "o": true
+        },
+        "muted": {
+          "t": 8,
+          "k": "bool"
+        }
+      }
+    },
+    "Types.Group": {
+      "fields": {
+        "id": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "name": {
+          "t": 2,
+          "k": "string"
+        },
+        "owner": {
+          "t": 3,
+          "k": "bool"
+        },
+        "participantIds": {
+          "t": 4,
+          "k": "fixed64",
+          "r": true,
+          "packed": true
+        }
+      }
+    },
+    "Types.Message": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "messageId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "authorId": {
+          "t": 3,
+          "k": "fixed64"
+        },
+        "message": {
+          "t": 4,
+          "k": "string"
+        },
+        "replyTo": {
+          "t": 5,
+          "k": "fixed64",
+          "o": true
+        },
+        "media": {
+          "t": 6,
+          "k": "Media.MessageMedia",
+          "r": true
+        },
+        "entities": {
+          "t": 7,
+          "k": "Types.MessageEntity",
+          "r": true
+        },
+        "editedAt": {
+          "t": 8,
+          "k": "uint64",
+          "o": true
+        },
+        "type": {
+          "t": 9,
+          "k": "enum",
+          "o": true
+        },
+        "forward": {
+          "t": 10,
+          "k": "Types.Message.MessageForwardInfo",
+          "o": true
+        }
+      }
+    },
+    "Types.Message.MessageForwardInfo": {
+      "fields": {}
+    },
+    "Types.MessageEntity": {
+      "fields": {
+        "startIndex": {
+          "t": 1,
+          "k": "uint32"
+        },
+        "length": {
+          "t": 2,
+          "k": "uint32"
+        },
+        "bold": {
+          "t": 3,
+          "k": "bool",
+          "o": true,
+          "oneof": "entity"
+        },
+        "italic": {
+          "t": 4,
+          "k": "bool",
+          "o": true,
+          "oneof": "entity"
+        },
+        "underline": {
+          "t": 5,
+          "k": "bool",
+          "o": true,
+          "oneof": "entity"
+        },
+        "strikethrough": {
+          "t": 6,
+          "k": "bool",
+          "o": true,
+          "oneof": "entity"
+        },
+        "code": {
+          "t": 7,
+          "k": "bool",
+          "o": true,
+          "oneof": "entity"
+        },
+        "url": {
+          "t": 8,
+          "k": "bool",
+          "o": true,
+          "oneof": "entity"
+        },
+        "spoiler": {
+          "t": 9,
+          "k": "Types.MessageEntity.SpoilerEntity",
+          "o": true,
+          "oneof": "entity"
+        },
+        "pre": {
+          "t": 10,
+          "k": "Types.MessageEntity.PreEntity",
+          "o": true,
+          "oneof": "entity"
+        },
+        "textUrl": {
+          "t": 11,
+          "k": "Types.MessageEntity.TextUrlEntity",
+          "o": true,
+          "oneof": "entity"
+        },
+        "customEmoji": {
+          "t": 12,
+          "k": "Types.MessageEntity.CustomEmojiEntity",
+          "o": true,
+          "oneof": "entity"
+        },
+        "userMention": {
+          "t": 13,
+          "k": "Types.MessageEntity.UserMentionEntity",
+          "o": true,
+          "oneof": "entity"
+        },
+        "username": {
+          "t": 14,
+          "k": "bool",
+          "o": true,
+          "oneof": "entity"
+        }
+      }
+    },
+    "Types.MessageEntity.CustomEmojiEntity": {
+      "fields": {
+        "emojiId": {
+          "t": 1,
+          "k": "fixed64"
+        }
+      }
+    },
+    "Types.MessageEntity.TextUrlEntity": {
+      "fields": {
+        "url": {
+          "t": 1,
+          "k": "string"
+        }
+      }
+    },
+    "Types.MessageEntity.PreEntity": {
+      "fields": {
+        "language": {
+          "t": 1,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Types.MessageEntity.SpoilerEntity": {
+      "fields": {}
+    },
+    "Types.MessageEntity.UserMentionEntity": {
+      "fields": {}
+    },
+    "Types.Channel": {
+      "fields": {
+        "id": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "communityId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "name": {
+          "t": 3,
+          "k": "string"
+        },
+        "type": {
+          "t": 4,
+          "k": "enum"
+        },
+        "position": {
+          "t": 5,
+          "k": "uint32"
+        },
+        "parentId": {
+          "t": 6,
+          "k": "fixed64",
+          "o": true
+        }
+      }
+    },
+    "Types.Community": {
+      "fields": {
+        "id": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "owner": {
+          "t": 2,
+          "k": "bool"
+        },
+        "name": {
+          "t": 3,
+          "k": "string"
+        },
+        "photo": {
+          "t": 4,
+          "k": "Types.ChatPhoto",
+          "o": true
+        },
+        "permissions": {
+          "t": 5,
+          "k": "fixed64"
+        },
+        "muted": {
+          "t": 6,
+          "k": "bool"
+        }
+      }
+    },
+    "Types.Entrypoint": {
+      "fields": {
+        "hostname": {
+          "t": 1,
+          "k": "string"
+        },
+        "ipAddress": {
+          "t": 2,
+          "k": "string",
+          "o": true
+        },
+        "port": {
+          "t": 3,
+          "k": "uint32"
+        },
+        "region": {
+          "t": 4,
+          "k": "uint32"
+        }
+      }
+    },
+    "Types.UserStatus": {
+      "fields": {
+        "online": {
+          "t": 2,
+          "k": "bool"
+        },
+        "status": {
+          "t": 3,
+          "k": "enum",
+          "o": true
+        },
+        "activities": {
+          "t": 4,
+          "k": "Types.UserStatus.Activity",
+          "r": true
+        }
+      }
+    },
+    "Types.UserStatus.Activity": {
+      "fields": {
+        "title": {
+          "t": 1,
+          "k": "string"
+        },
+        "type": {
+          "t": 2,
+          "k": "enum"
+        },
+        "startTime": {
+          "t": 3,
+          "k": "fixed64"
+        },
+        "endTime": {
+          "t": 4,
+          "k": "fixed64",
+          "o": true
+        },
+        "state": {
+          "t": 5,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Types.CommunityMember": {
+      "fields": {
+        "id": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "communityId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "roleIds": {
+          "t": 3,
+          "k": "fixed64",
+          "r": true,
+          "packed": true
+        },
+        "nickname": {
+          "t": 4,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Types.CommunityRole": {
+      "fields": {
+        "id": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "communityId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "name": {
+          "t": 3,
+          "k": "string"
+        },
+        "permissions": {
+          "t": 4,
+          "k": "fixed64"
+        },
+        "priority": {
+          "t": 5,
+          "k": "uint32"
+        },
+        "color": {
+          "t": 6,
+          "k": "uint32"
+        },
+        "separated": {
+          "t": 7,
+          "k": "bool"
+        },
+        "public": {
+          "t": 8,
+          "k": "bool"
+        }
+      }
+    },
+    "Types.ChannelOverride": {
+      "fields": {
+        "communityId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "channelId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "roleId": {
+          "t": 3,
+          "k": "fixed64"
+        },
+        "permissions": {
+          "t": 4,
+          "k": "Types.PermissionOverrides"
+        }
+      }
+    },
+    "Types.Relationship": {
+      "fields": {
+        "userId": {
+          "t": 1,
+          "k": "fixed64"
+        },
+        "status": {
+          "t": 2,
+          "k": "enum"
+        }
+      }
+    }
+  }
+}

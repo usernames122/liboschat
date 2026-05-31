@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "namespace": "Chats",
+  "imports": [
+    "types.protodef",
+    "refs.protodef"
+  ],
+  "messages": {
+    "Chats.GetChats": {
+      "fields": {
+        "limit": {
+          "t": 1,
+          "k": "uint32",
+          "o": true
+        },
+        "maxId": {
+          "t": 2,
+          "k": "fixed64",
+          "o": true
+        },
+        "minId": {
+          "t": 3,
+          "k": "fixed64",
+          "o": true
+        }
+      }
+    },
+    "Chats.Chats": {
+      "fields": {
+        "chats": {
+          "t": 1,
+          "k": "Types.Conversation",
+          "r": true
+        },
+        "users": {
+          "t": 2,
+          "k": "Types.User",
+          "r": true
+        },
+        "groups": {
+          "t": 3,
+          "k": "Types.Group",
+          "r": true
+        },
+        "channels": {
+          "t": 4,
+          "k": "Types.Channel",
+          "r": true
+        },
+        "messages": {
+          "t": 5,
+          "k": "Types.Message",
+          "r": true
+        }
+      }
+    },
+    "Chats.GetChat": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        }
+      }
+    },
+    "Chats.Chat": {
+      "fields": {
+        "chat": {
+          "t": 1,
+          "k": "Types.Conversation"
+        },
+        "message": {
+          "t": 2,
+          "k": "Types.Message",
+          "o": true
+        },
+        "users": {
+          "t": 3,
+          "k": "Types.User",
+          "r": true
+        },
+        "group": {
+          "t": 4,
+          "k": "Types.Group",
+          "o": true
+        },
+        "channel": {
+          "t": 5,
+          "k": "Types.Channel",
+          "o": true
+        }
+      }
+    },
+    "Chats.CreateChatInvite": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "expiresAt": {
+          "t": 2,
+          "k": "fixed64",
+          "o": true
+        },
+        "maxUses": {
+          "t": 3,
+          "k": "uint32",
+          "o": true
+        }
+      }
+    },
+    "Chats.ListChatInvites": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        }
+      }
+    },
+    "Chats.DeleteChatInvite": {
+      "fields": {
+        "code": {
+          "t": 1,
+          "k": "string"
+        }
+      }
+    },
+    "Chats.MarkChatRead": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "messageId": {
+          "t": 2,
+          "k": "fixed64"
+        },
+        "readAmount": {
+          "t": 3,
+          "k": "uint32",
+          "o": true
+        }
+      }
+    },
+    "Chats.SetTyping": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "typing": {
+          "t": 2,
+          "k": "bool"
+        }
+      }
+    },
+    "Chats.CreateChat": {
+      "fields": {
+        "users": {
+          "t": 1,
+          "k": "Refs.UserRef",
+          "r": true
+        },
+        "name": {
+          "t": 2,
+          "k": "string"
+        }
+      }
+    },
+    "Chats.UpdateChat": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "name": {
+          "t": 2,
+          "k": "string",
+          "o": true
+        }
+      }
+    },
+    "Chats.RemoveChatMember": {
+      "fields": {
+        "chatRef": {
+          "t": 1,
+          "k": "Refs.ChatRef"
+        },
+        "userId": {
+          "t": 2,
+          "k": "fixed64"
+        }
+      }
+    }
+  }
+}
