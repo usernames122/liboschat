@@ -1,8 +1,10 @@
 from __future__ import annotations
 
-from typing import Any
+from pathlib import Path
+from typing import Any, BinaryIO
 
 from ..httpreq import Requester
+from .media import MediaAPI, UPLOAD_PART_SIZE
 
 
 STATUS_ONLINE = 0
@@ -45,6 +47,47 @@ class SettingsAPI:
         if file is not None:
             payload["file"] = file
         await self.requester.request("settingsEditProfilePhoto", payload)
+
+    async def set_profile_file(
+        self,
+        file: str | Path | bytes | bytearray | memoryview | BinaryIO,
+        *,
+        filename: str | None = None,
+        mimetype: str | None = None,
+        part_size: int = UPLOAD_PART_SIZE,
+    ) -> dict[str, Any]:
+        media = MediaAPI(self.requester)
+
+        if isinstance(file, str | Path):
+            path = Path(file)
+            with path.open("rb") as fp:
+                uploaded = await media.upload_fp(
+                    fp,
+                    filename=filename or path.name,
+                    mimetype=mimetype,
+                    metadata={"image": {}},
+                    part_size=part_size,
+                )
+        elif isinstance(file, bytes | bytearray | memoryview):
+            uploaded = await media.upload(
+                file,
+                filename=filename,
+                mimetype=mimetype,
+                metadata={"image": {}},
+                part_size=part_size,
+            )
+        else:
+            uploaded = await media.upload_fp(
+                file,
+                filename=filename,
+                mimetype=mimetype,
+                metadata={"image": {}},
+                part_size=part_size,
+            )
+
+        uploaded_file = uploaded["uploaded"]["file"]
+        await self.edit_profile_photo(uploaded_file)
+        return uploaded_file
 
     async def change_status(self, status: int = STATUS_ONLINE, activities: list[dict[str, Any]] | None = None) -> None:
         await self.requester.request("settingsChangeStatus", {
