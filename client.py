@@ -4,6 +4,7 @@ from typing import Any
 
 from .functions import (
     AccountAPI,
+    Authorization,
     BillingAPI,
     ChatsAPI,
     FriendsAPI,
@@ -47,7 +48,9 @@ class Client:
         self.billing = BillingAPI(self.requester)
         self.voice = VoiceAPI(self.requester)
         self.initialized: dict[str, Any] | None = None
-        self.authorization = None
+        self.authorization: Authorization | None = None
+        self._auth_token: str | None = None
+        self.requester.add_reconnect_handler(self._restore_session_after_reconnect)
 
     async def connect(self):
         await self.requester.init()
@@ -87,15 +90,27 @@ class Client:
 
     async def login_as_guest(self, guest_uname: str | None = None):
         self.authorization = await self.account.login_as_guest(guest_uname)
+        self._auth_token = self.authorization.token
         return self.authorization
 
     async def sign_in(self, email: str, password: str, *, totp: str | None = None):
         self.authorization = await self.account.sign_in(email, password, totp=totp)
+        self._auth_token = self.authorization.token
         return self.authorization
 
     async def login_with_token(self, token: str):
         self.authorization = await self.account.login_with_token(token)
+        self._auth_token = self.authorization.token
         return self.authorization
+
+    async def _restore_session_after_reconnect(self):
+        result = await self.requester.request("coreInitialize", self.client_info)
+        self.initialized = result.get("initialized")
+        if self._auth_token is None:
+            return
+        result = await self.requester.request("authAuthorize", {"token": self._auth_token})
+        self.authorization = Authorization.from_dict(result["authorization"])
+        self._auth_token = self.authorization.token
 
     async def verify_email(self, email: str, code: str):
         return await self.account.verify_email(email, code)
